@@ -19,6 +19,6 @@ export class HomeComponent implements OnInit {
       .then((ofertas: Oferta[]) => {
         console.log('Função Resolve() foi atendida depois de 3s')
         this.ofertas = ofertas})
-      .catch((param: any) => console.log(param))
+      //.catch((param: any) => console.log(param))
   }
 }

@@ -30,7 +30,7 @@
         </div>
         <div class="row">
           <div class="col text-center">
-            <h1><strong>R$ {{oferta.valor}}</strong></h1>
+            <h1><strong>{{oferta.valor | currency: "BRL"}}</strong></h1>
           </div>
         </div>
         <div class="row">
@@ -48,7 +48,7 @@
             <a class="nav-link" routerLinkActive="active" routerLink="como-usar" data-toogle="tab" role="tab" aria-expanded="true">Como Usar</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active" routerLink="onde-chegar" data-toogle="tab" role="tab" aria-expanded="true">Onde Fica?</a>
+            <a class="nav-link" routerLinkActive="active" routerLink="onde-fica" data-toogle="tab" role="tab" aria-expanded="true">Onde Fica?</a>
           </li>
         </ul>
         <div class="tab-content">
