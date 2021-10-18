@@ -13,6 +13,8 @@ import { OfertaComponent } from './components/oferta/oferta.component';
 import { ComoUsarComponent } from './components/oferta/como-usar/como-usar.component';
 import { OndeFicaComponent } from './components/oferta/onde-fica/onde-fica.component';
 import { OrdemCompraComponent } from './components/ordem-compra/ordem-compra.component';
+import { OrdemCompraSucessoComponent } from './components/ordem-compra-sucesso/ordem-compra-sucesso.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,9 +28,11 @@ import { OrdemCompraComponent } from './components/ordem-compra/ordem-compra.com
     ComoUsarComponent,
     OndeFicaComponent,
     DescricaoReduzida,
-    OrdemCompraComponent
+    OrdemCompraComponent,
+    OrdemCompraSucessoComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule

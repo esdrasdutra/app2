@@ -118,12 +118,9 @@
           #inputComplemento
             (input)="atualizaComplemento(inputComplemento.value)">
             <div *ngIf="pristineComplemento == false">
-              <div *ngIf="isValidComplemento; else invalidComplementoText">
+              <div *ngIf="isValidComplemento">
                 <small class="form-text text-success">TA SUAVE</small>
               </div>
-              <ng-template #invalidComplementoText>
-                <small class="form-text text-danger">TA EMBAÇADO</small>
-              </ng-template>
             </div>
         </div>
       </div>
@@ -153,7 +150,11 @@
         </div>
       </div>
       <hr />
-      <button type="submit" class="btn btn-primary btn-lg">Cofirmar compra</button>
+      <button type="button" class="btn btn-primary btn-lg" [disabled]="formEstado" (click)="confirmarCompra()">Cofirmar compra</button>
     </form>
   </div>
+
+  <div class="ordem-compra" *ngIf="idPedidoCompra">
+    <app-ordem-compra-sucesso [idPedidoCompra]="idPedidoCompra"></app-ordem-compra-sucesso>
+</div>
 </div>
