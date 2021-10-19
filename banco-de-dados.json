@@ -188,35 +188,35 @@
   "pedidos": [
     {
       "endereco": "Av. Helio Gueiros",
-      "numero": "1",
-      "complemento": "QD 5",
+      "numero": "5",
+      "complemento": "QUADRA C",
       "formaPagamento": "dinheiro",
       "id": 1
     },
     {
-      "endereco": "Av. 2 de Junho",
-      "numero": "19",
-      "complemento": "QD 5",
+      "endereco": "Av. Fernando Guilhon",
+      "numero": "5",
+      "complemento": "REsidencial Salvação",
       "formaPagamento": "debito",
       "id": 2
     },
     {
-      "endereco": "Av Helio Gueiros",
-      "numero": "5",
-      "complemento": "Quadra C",
+      "endereco": "Avenida Moaçara",
+      "numero": "15",
+      "complemento": "APT 108",
       "formaPagamento": "dinheiro",
       "id": 3
     },
     {
-      "endereco": "Av. Helio Gueiros",
-      "numero": "5",
-      "complemento": "QD C",
-      "formaPagamento": "dinheiro",
+      "endereco": "Av. Rui Barbosa",
+      "numero": "102",
+      "complemento": "APT 108",
+      "formaPagamento": "debito",
       "id": 4
     },
     {
       "endereco": "Av. Helio Gueiros",
-      "numero": "5",
+      "numero": "152",
       "complemento": "QD C",
       "formaPagamento": "dinheiro",
       "id": 5
@@ -226,77 +226,19 @@
       "numero": "5",
       "complemento": "QD C",
       "formaPagamento": "dinheiro",
+      "itensPedido": [
+        {
+          "id": 4,
+          "img": {
+            "url": "/assets/ofertas/4/img1.jpg"
+          },
+          "titulo": "Estância das águas",
+          "descricao_oferta": "Diversão garantida com piscinas, trilhas e muito mais.",
+          "valor": 31.9,
+          "quantidade": 2
+        }
+      ],
       "id": 6
-    },
-    {
-      "endereco": "Av. Helio Gueiros",
-      "numero": "5",
-      "complemento": "QD C",
-      "formaPagamento": "dinheiro",
-      "id": 7
-    },
-    {
-      "endereco": "Av. Helio Gueiros",
-      "numero": "5",
-      "complemento": "QD C",
-      "formaPagamento": "dinheiro",
-      "id": 8
-    },
-    {
-      "endereco": "Av. Helio Gueiros",
-      "numero": "5",
-      "complemento": "QD C",
-      "formaPagamento": "dinheiro",
-      "id": 9
-    },
-    {
-      "endereco": "Av. Helio Gueiros",
-      "numero": "5",
-      "complemento": "QD C",
-      "formaPagamento": "dinheiro",
-      "id": 10
-    },
-    {
-      "endereco": "Av. Helio Gueiros",
-      "numero": "5",
-      "complemento": "QD C",
-      "formaPagamento": "dinheiro",
-      "id": 11
-    },
-    {
-      "endereco": "Av. Helio Gueiros",
-      "numero": "5",
-      "complemento": "QD C",
-      "formaPagamento": "dinheiro",
-      "id": 12
-    },
-    {
-      "endereco": "Av. Helio Gueiros",
-      "numero": "5",
-      "complemento": "QD C",
-      "formaPagamento": "dinheiro",
-      "id": 13
-    },
-    {
-      "endereco": "Av. Helio Gueiros",
-      "numero": "5",
-      "complemento": "QD C",
-      "formaPagamento": "dinheiro",
-      "id": 14
-    },
-    {
-      "endereco": "Av. Helio Gueiros",
-      "numero": "5",
-      "complemento": "QD C",
-      "formaPagamento": "dinheiro",
-      "id": 15
-    },
-    {
-      "endereco": "Av. Helio Gueiros",
-      "numero": "5",
-      "complemento": "QD C",
-      "formaPagamento": "dinheiro",
-      "id": 16
     }
   ]
 }

@@ -14,7 +14,9 @@ import { ComoUsarComponent } from './components/oferta/como-usar/como-usar.compo
 import { OndeFicaComponent } from './components/oferta/onde-fica/onde-fica.component';
 import { OrdemCompraComponent } from './components/ordem-compra/ordem-compra.component';
 import { OrdemCompraSucessoComponent } from './components/ordem-compra-sucesso/ordem-compra-sucesso.component';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CarrinhoService } from './services/carrinho.service';
+import { OrdemCompraVazioComponent } from './components/ordem-compra/ordem-compra-vazio/ordem-compra-vazio.component';
 
 @NgModule({
   declarations: [
@@ -29,15 +31,16 @@ import { FormsModule } from '@angular/forms';
     OndeFicaComponent,
     DescricaoReduzida,
     OrdemCompraComponent,
-    OrdemCompraSucessoComponent
+    OrdemCompraSucessoComponent,
+    OrdemCompraVazioComponent
   ],
   imports: [
-    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [CarrinhoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

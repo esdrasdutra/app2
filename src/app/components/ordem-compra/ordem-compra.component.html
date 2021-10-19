@@ -1,104 +1,62 @@
-<div class="container">
-  <div class="ordem-compra">
-    <form novalidate>
-
+<div class="container container-padding">
+  <div class="ordem-compra" *ngIf="idPedidoCompra === undefined">
+    <form [formGroup]="form" novalidate (ngSubmit)="confirmarCompra()" *ngIf="itensCarrinho.length > 0; else carroVazio">
       <h5>Sua Compra</h5>
       <hr />
-
-      <div class="form-row" style="background: #FAFAFA; padding: 20px; border-bottom: solid 1px #F0F0F0">
+      <div class="form-row" *ngFor="let item of itensCarrinho"
+        style="background: #FAFAFA; padding: 20px; border-bottom: solid 1px #F0F0F0">
         <div class="form-group col-sm-1">
-          <img src="/assets/ofertas/1/img1.jpg" class="img-fluid">
+          <img [src]="item.img.url" class="img-fluid">
         </div>
         <div class="form-group col-sm-6">
-          Super Burger
+          {{ item.titulo }}
           <br />
-          Rodízio de Mini-hambúrger com opção de entrada.
+          {{ item.descricao_oferta }}
         </div>
 
         <div>
           <div class="row">
             <div class="col">
-              <button type="button" class="btn btn-link">-</button>
-              1
-              <button type="button" class="btn btn-link">+</button>
+              <button type="button" class="btn btn-link" (click)="remItem(item)">-</button>
+              {{ item.quantidade }}
+              <button type="button" class="btn btn-link" (click)="addItem(item)">+</button>
             </div>
           </div>
         </div>
 
         <div class="form-group col-sm-3 d-flex justify-content-end">
-          29.90
-        </div>
-      </div>
-
-      <div class="form-row" style="background: #FAFAFA; padding: 20px; border-bottom: solid 1px #F0F0F0">
-        <div class="form-group col-sm-1">
-          <img src="/assets/ofertas/4/img1.jpg" class="img-fluid">
-        </div>
-        <div class="form-group col-sm-6">
-          Estância das águas
-          <br />
-          Diversão garantida com piscinas, trilhas e muito mais.
-        </div>
-
-        <div>
-          <div class="row">
-            <div class="col">
-              <button type="button" class="btn btn-link">-</button>
-              1
-              <button type="button" class="btn btn-link">+</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group col-sm-3 d-flex justify-content-end">
-          31.90
+          {{ item.valor * item.quantidade | currency: "BRL"}}
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group col d-flex justify-content-end">
-          <h4>Total do pedido: 61.80</h4>
+          <h4>Total Pedido: {{ carrinhoService.totalCarrinhoCompras() | currency: 'BRL'}}</h4>
         </div>
       </div>
+
       <br />
-
-
       <h5>Dados de entrega</h5>
       <hr />
-
       <div class="form-row">
+        <div class="form-group col-md-6 py-2">
+          <input type="text" class="form-control" placeholder="Endereço" autocomplete="off" required minlength="15"
+            formControlName='endereco'>
+          <small *ngIf="form.get('endereco')?.valid && form.get('endereco')?.touched"> OK </small>
+          <small *ngIf="form.get('endereco')?.invalid && form.get('endereco')?.touched"> Endereço Inválido </small>
 
-        <div class="form-group col-md-6">
-          <input
-            type="text"
-            class="form-control is-invalid"
-            placeholder="Endereço"
-            autocomplete="off"
-            minlength="5"
-            required
-          >
-          <small class="form-text text-danger">Endereço inválido</small>
         </div>
 
-        <div class="form-group col-md-2">
-          <input
-            type="text"
-            class="form-control is-valid"
-            placeholder="Número"
-            autocomplete="off"
-            minlength="1"
-            required
-          >
-          <small class="form-text text-success">Ok</small>
+        <div class="form-group col-md-2 py-2">
+          <input type="text" class="form-control" placeholder="Número" autocomplete="off" name="numero" required
+            minlength="1" formControlName="numero">
+          <small *ngIf="form.get('numero')?.valid && form.get('numero')?.touched"> OK </small>
+          <small *ngIf="form.get('numero')?.invalid && form.get('numero')?.touched"> Número Inválido </small>
         </div>
 
-        <div class="form-group col-md-4">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Complemento"
-            autocomplete="off"
-          >
+        <div class="form-group col-md-4 py-2">
+          <input type="text" class="form-control" placeholder="Complemento" autocomplete="off" name="complemento"
+            formControlName="complemento">
         </div>
 
       </div>
@@ -110,22 +68,28 @@
       <div class="form-row">
 
         <div class="form-group col-md-3">
-          <select
-            class="form-control is-invalid"
-          >
+          <select class="form-control" formControlName="formaPagamento">
             <option value="">Selecione uma opção</option>
             <option value="dinheiro">Dinheiro</option>
             <option value="debito">Débito</option>
           </select>
-          <small class="form-text text-danger">Forma de pagamento inválida</small>
+          <small *ngIf="form.get('formaPagamento')?.valid && form.get('formaPagamento')?.touched"> OK </small>
+          <small *ngIf="form.get('formaPagamento')?.invalid && form.get('formaPagamento')?.touched"> Pagamento Inválido
+          </small>
+
         </div>
       </div>
 
       <hr />
-      <button
-        type="button"
-        class="btn btn-primary btn-lg"
-      >Cofirmar compra</button>
+      <button type="submit" class="btn btn-primary btn-lg">
+        Cofirmar compra</button>
     </form>
+
+    <ng-template #carroVazio>
+      <app-ordem-compra-vazio></app-ordem-compra-vazio>
+    </ng-template>
+  </div>
+  <div class="ordem-compra" *ngIf="idPedidoCompra !== undefined">
+    <app-ordem-compra-sucesso [idPedidoCompra]="idPedidoCompra"> </app-ordem-compra-sucesso>
   </div>
 </div>
